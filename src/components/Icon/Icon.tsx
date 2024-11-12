@@ -29,17 +29,19 @@ import {TrashIcon} from '../../assets/icons/TrashIcon';
 import {useAppTheme} from '../../hooks/useAppTheme';
 import {ThemeColors} from '../../theme/theme';
 import { Pressable } from 'react-native';
+import { CheckRoundIcon } from '../../assets/icons/CheckRoundIcon';
+import { MessageRoundIcon } from '../../assets/icons/MessageRoundIcon';
 export interface IconBase {
   size?: number;
   color?: string;
 }
-interface Props {
+export interface IconProps {
   name: IconName;
   color?: ThemeColors;
   size?: number;
   onPress?: () => void;
 }
-export function Icon({name, color = 'backgroundContrast', size, onPress}: Props) {
+export function Icon({name, color = 'backgroundContrast', size, onPress}: IconProps) {
   const {colors} = useAppTheme();
   const SVGIcon = iconRegistry[name];
   if (onPress) {
@@ -63,6 +65,7 @@ const iconRegistry = {
   chat: ChatIcon,
   chatOn: ChatOnIcon,
   check: CheckIcon,
+  checkRound: CheckRoundIcon,
   comment: CommentIcon,
   chevronRight: ChevronRightIcon,
   eyeOn: EyeOnIcon,
@@ -74,6 +77,7 @@ const iconRegistry = {
   home: HomeIcon,
   homeFill: HomeFillIcon,
   message: MessageIcon,
+  messageRound: MessageRoundIcon,
   newPost: NewPostIcon,
   profile: ProfileIcon,
   profileFill: ProfileFillIcon,
