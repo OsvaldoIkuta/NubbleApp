@@ -1,11 +1,10 @@
 import React from 'react';
 
-import {StackScreenProps} from '@react-navigation/stack';
+import { AuthScreenProps } from 'src/routes/nativationType';
 
 import {Button, Icon, Screen, Text} from '@components';
-import {RootStackParamList} from '@routes';
-type ScreenProps = StackScreenProps<RootStackParamList, 'SuccessScreen'>;
-export function SuccessScreen({route, navigation}: ScreenProps) {
+
+export function SuccessScreen({route, navigation}: AuthScreenProps<'SuccessScreen'>) {
   function goBackToBegin() {
     // TODO: navegar para a tela de login
     navigation.navigate('LoginScreen');

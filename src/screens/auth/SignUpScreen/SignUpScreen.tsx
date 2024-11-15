@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import {StackScreenProps} from '@react-navigation/stack';
 import { useForm } from 'react-hook-form';
+import { AuthScreenProps } from 'src/routes/nativationType';
 
 import {
   Button,
@@ -12,16 +12,14 @@ import {
   Text,
 } from '@components';
 import {useResetNavigationSuccess} from '@hooks';
-import {RootStackParamList} from '@routes';
 
 import { signUpSchema, SignUpSchema } from './signUpSchema';
 
-type ScreenProps = StackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function SignUpScreen(props: ScreenProps) {
+export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
   const {reset} = useResetNavigationSuccess();
-  const {control, formState, handleSubmit} = useForm<SignUpSchema>({
+  const {control, handleSubmit} = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
       username: '',
