@@ -1,17 +1,18 @@
-import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {Button} from '../../../components/Button/Button';
-import {Screen} from '../../../components/Screen/Screen';
-import {Text} from '../../../components/Text/Text';
-import {RootStackParamList} from '../../../routes/Routes';
-import {useResetNavigationSuccess} from '../../../hooks/useResetNavigationSuccess';
+
+import {zodResolver} from '@hookform/resolvers/zod';
+import {StackScreenProps} from '@react-navigation/stack';
+import {useForm} from 'react-hook-form';
+
+import {Button, FormTextInput, Screen, Text} from '@components';
+import {useResetNavigationSuccess} from '@hooks';
+import {RootStackParamList} from '@routes';
+
 import {
   forgotPasswordSchema,
   ForgotPasswordSchema,
 } from './forgotPasswordSchema';
-import {useForm} from 'react-hook-form';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {FormTextInput} from '../../../components/Form/FormTextInput';
+
 type ScreenProps = StackScreenProps<RootStackParamList, 'ForgotPasswordScreen'>;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

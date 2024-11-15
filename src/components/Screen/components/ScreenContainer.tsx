@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView, View } from 'react-native';
 
 interface Props {
     children: React.ReactNode;
@@ -13,7 +13,7 @@ interface Props {
       </ScrollView>
     );
   }
-  
+
   export function ViewContainer({children, backgroundColor}: Props) {
     return <View style={{backgroundColor}}>{children}</View>;
   }

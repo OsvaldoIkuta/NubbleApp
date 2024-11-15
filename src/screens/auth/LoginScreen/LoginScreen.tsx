@@ -1,15 +1,24 @@
 import React from 'react';
-import {Screen} from '../../../components/Screen/Screen';
-import {Text} from '../../../components/Text/Text';
-import {Button} from '../../../components/Button/Button';
-import {StackScreenProps} from '@react-navigation/stack';
-import {RootStackParamList} from '../../../routes/Routes';
-import {useForm} from 'react-hook-form';
 import {Alert} from 'react-native';
-import { loginSchema, LoginSchema } from './loginSchema';
+
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormTextInput } from '../../../components/Form/FormTextInput';
-import { FormPasswordInput } from '../../../components/Form/FormPasswordInput';
+import {StackScreenProps} from '@react-navigation/stack';
+import {useForm} from 'react-hook-form';
+
+import {
+  Text,
+  Screen,
+  Button,
+  FormTextInput,
+  FormPasswordInput,
+} from '@components';
+import {RootStackParamList} from '@routes';
+
+
+
+import { loginSchema, LoginSchema } from './loginSchema';
+
+
 
 
 type ScreenProps = StackScreenProps<RootStackParamList, 'LoginScreen'>;
@@ -31,7 +40,7 @@ export function LoginScreen({navigation}: ScreenProps) {
   }
 
   function submitForm({email, password}: LoginSchema) {
-    Alert.alert(`Email: ${email} ${`\n`} Senha: ${password}`);
+    Alert.alert(`Email: ${email} ${'\n'} Senha: ${password}`);
   }
 
   return (
