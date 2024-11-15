@@ -28,6 +28,7 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export function Router() {
+  const ed = '';
   return (
     <NavigationIndependentTree>
       <NavigationContainer>
