@@ -1,15 +1,38 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {FlatList, ListRenderItemInfo, StyleProp, ViewStyle} from 'react-native';
 
-import { AppTabScreenProps } from 'src/routes/nativationType';
+import {Post, postService} from '@domain';
+import {AppTabScreenProps} from 'src/routes/nativationType';
 
-import { Button, Screen, Text } from '@components';
+import {PostItem, Screen} from '@components';
 
+import { HomeHeader } from './components/HomeHeader';
 
-export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
-    return (
-        <Screen>
-            <Text preset="headingLarge">Home Screen</Text>
-            <Button onPress={() => navigation.navigate('SettingsScreen')} preset="primary" title="Go to Setting Screen"/>
-        </Screen>
-    );
+export function HomeScreen({}: AppTabScreenProps<'HomeScreen'>) {
+  const [postList, setPostList] = useState<Post[]>([]);
+  useEffect(() => {
+    postService.getList().then(list => setPostList(list));
+  }, []);
+
+  function renderItem({item}: ListRenderItemInfo<Post>) {
+    return <PostItem post={item} />;
+  }
+
+  return (
+    <Screen style={$screen}>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={postList}
+        keyExtractor={item => item.id}
+        renderItem={renderItem}
+        ListHeaderComponent={<HomeHeader/>}
+      />
+    </Screen>
+  );
 }
+
+const $screen: StyleProp<ViewStyle> = {
+  paddingTop: 0,
+  paddingBottom: 0,
+  paddingHorizontal: 0,
+};
