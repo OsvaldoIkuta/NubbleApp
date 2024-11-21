@@ -22,9 +22,9 @@ export function ForgotPasswordScreen({navigation}: AuthScreenProps<'ForgotPasswo
     },
     mode: 'onChange',
   });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function submitForm(values: ForgotPasswordSchema) {
     // TODO: submit form
-    console.log(values);
     reset({
       title: `Enviamos as instruções ${'\n'}para seu e-mail`,
       description:

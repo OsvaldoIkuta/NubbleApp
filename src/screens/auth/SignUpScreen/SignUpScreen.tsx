@@ -30,8 +30,8 @@ export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
     mode: 'onChange',
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function submitForm(formValues: SignUpSchema) {
-    console.log(formValues);
     reset({
       title: 'Sua conta foi criada com sucesso!',
       description: 'Agora é só fazer login na nossa plataforma',
