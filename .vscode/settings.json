@@ -1,6 +1,9 @@
 {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
-    "cSpell.words": ["Zustand"]
+    "cSpell.words": [
+      "Zustand"
+    ],
+    "editor.tabSize": 2
   }
