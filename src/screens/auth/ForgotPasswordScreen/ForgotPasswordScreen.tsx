@@ -5,7 +5,7 @@ import {useForm} from 'react-hook-form';
 import { AuthScreenProps } from 'src/routes/nativationType';
 
 import {Button, FormTextInput, Screen, Text} from '@components';
-import {useResetNavigationSuccess} from '@hooks';
+
 
 import {
   forgotPasswordSchema,
@@ -14,7 +14,7 @@ import {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function ForgotPasswordScreen({navigation}: AuthScreenProps<'ForgotPasswordScreen'>) {
-  const {reset} = useResetNavigationSuccess();
+  //const {reset} = useResetNavigationSuccess();
   const {control, formState, handleSubmit} = useForm<ForgotPasswordSchema>({
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
@@ -25,7 +25,7 @@ export function ForgotPasswordScreen({navigation}: AuthScreenProps<'ForgotPasswo
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function submitForm(values: ForgotPasswordSchema) {
     // TODO: submit form
-    reset({
+    /*reset({
       title: `Enviamos as instruções ${'\n'}para seu e-mail`,
       description:
         'Clique no link enviado no seu e-mail para recuperar sua senha',
@@ -33,7 +33,7 @@ export function ForgotPasswordScreen({navigation}: AuthScreenProps<'ForgotPasswo
         name: 'messageRound',
         color: 'primary',
       },
-    });
+    });*/
   }
   return (
     <Screen canGoBack>

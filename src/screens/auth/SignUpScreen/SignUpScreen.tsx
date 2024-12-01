@@ -12,12 +12,24 @@ import {
   Text,
 } from '@components';
 import {useResetNavigationSuccess} from '@hooks';
+import { AuthStackParamList } from '@routes';
 
 import { signUpSchema, SignUpSchema } from './signUpSchema';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const resetParam: AuthStackParamList['SuccessScreen'] = {
+  title: 'Sua conta foi criada com sucesso!',
+  description: 'Agora é só fazer login na nossa plataforma',
+  icon: {
+    name: 'checkRound',
+    color: 'success',
+  },
+};
 
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {reset} = useResetNavigationSuccess();
   const {control, handleSubmit} = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
@@ -32,14 +44,7 @@ export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function submitForm(formValues: SignUpSchema) {
-    reset({
-      title: 'Sua conta foi criada com sucesso!',
-      description: 'Agora é só fazer login na nossa plataforma',
-      icon: {
-        name: 'checkRound',
-        color: 'success',
-      },
-    });
+    //reset(resetParam);
   }
   return (
     <Screen canGoBack scrollable>
