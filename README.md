@@ -34,4 +34,4 @@ Nubble App adopts a layered architecture with Clean Architecture, SOLID, design 
 - [YouTube](https://www.youtube.com/@Coffstack)
 - [Instagram](https://www.instagram.com/lucasgar6/)
 
-[![I want register myself](https://img.shields.io/badge/Quero%20Me%20Inscrever-4CAF50?style=for-the-badge&logoColor=white)](https://coffstack.com.br/profissional-react-native)
+[![I want register myself](https://img.shields.io/badge/I%20want%20register%20myself-4CAF50?style=for-the-badge&logoColor=white)](https://coffstack.com.br/profissional-react-native)
