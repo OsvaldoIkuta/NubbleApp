@@ -1,5 +1,5 @@
 import {api} from '@api';
-import { AuthCredentialsAPI, SignUpDataAPI, UserAPI } from '@domain';
+import { AuthCredentialsAPI, FieldIsAvailableAPI, ForgotPasswordParam, SignUpDataAPI, UserAPI } from '@domain';
 async function signIn(
   email: string,
   password: string,
@@ -10,6 +10,27 @@ async function signIn(
   });
   return response.data;
 }
+
+async function isUserNameAvailable(params: {
+  username: string;
+}): Promise<FieldIsAvailableAPI> {
+  const response = await api.get<FieldIsAvailableAPI>('validate-username', {
+    params,
+  });
+
+  return response.data;
+}
+
+async function isEmailAvailable(params: {
+  email: string;
+}): Promise<FieldIsAvailableAPI> {
+  const response = await api.get<FieldIsAvailableAPI>('validate-email', {
+    params,
+  });
+
+  return response.data;
+}
+
 async function signOut(): Promise<string> {
   const response = await api.get<string>('profile/logout');
   return response.data;
@@ -20,8 +41,19 @@ async function signUp(data: SignUpDataAPI): Promise<UserAPI> {
   return response.data;
 }
 
+async function forgotPassword(
+  params: ForgotPasswordParam,
+): Promise<{message: string}> {
+  const response = await api.post<{message: string}>('forgot-password', params);
+
+  return response.data;
+}
+
 export const authApi = {
   signIn,
   signOut,
   signUp,
+  isUserNameAvailable,
+  isEmailAvailable,
+  forgotPassword,
 };

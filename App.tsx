@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AuthCredentialsProvider, MMKVStorage, ToastProvider, asyncStorage, initializeStorage} from '@services';
+import {AuthCredentialsProvider, MMKVStorage, ToastProvider, initializeStorage} from '@services';
 import {ThemeProvider} from '@shopify/restyle';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
