@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { AuthScreenProps } from 'src/routes/nativationType';
+import {useAuthSignUp} from '@domain';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
+import {AuthScreenProps} from 'src/routes/nativationType';
 
 import {
   Button,
@@ -12,11 +13,10 @@ import {
   Text,
 } from '@components';
 import {useResetNavigationSuccess} from '@hooks';
-import { AuthStackParamList } from '@routes';
+import {AuthStackParamList} from '@routes';
 
-import { signUpSchema, SignUpSchema } from './signUpSchema';
+import {signUpSchema, SignUpSchema} from './signUpSchema';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const resetParam: AuthStackParamList['SuccessScreen'] = {
   title: 'Sua conta foi criada com sucesso!',
   description: 'Agora é só fazer login na nossa plataforma',
@@ -26,25 +26,31 @@ const resetParam: AuthStackParamList['SuccessScreen'] = {
   },
 };
 
+const defaultValues: SignUpSchema = {
+  username: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+};
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function SignUpScreen({}: AuthScreenProps<'SignUpScreen'>) {
   const {reset} = useResetNavigationSuccess();
+  const {signUp, isLoading} = useAuthSignUp({
+    onSuccess: () => {
+      reset(resetParam);
+    },
+  });
+
   const {control, handleSubmit} = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
-    defaultValues: {
-      username: '',
-      fullName: '',
-      email: '',
-      password: '',
-    },
+    defaultValues,
     mode: 'onChange',
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   function submitForm(formValues: SignUpSchema) {
-    //reset(resetParam);
+    signUp(formValues);
   }
   return (
     <Screen canGoBack scrollable>
@@ -60,15 +66,23 @@ export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
         boxProps={{mb: 's20'}}
       />
       <FormTextInput
-      control={control}
-        label="Nome Completo"
+        control={control}
+        name="firstName"
         autoCapitalize="words"
-        placeholder="Digite seu nome completo"
+        label="Nome"
+        placeholder="Digite seu nome"
         boxProps={{mb: 's20'}}
-        name={'fullName'}
       />
       <FormTextInput
-      control={control}
+        control={control}
+        name="lastName"
+        label="Sobrenome"
+        placeholder="Digite seu sobrenome"
+        boxProps={{mb: 's20'}}
+      />
+
+      <FormTextInput
+        control={control}
         label="E-mail"
         name={'email'}
         placeholder="Digite seu e-mail"
@@ -76,7 +90,7 @@ export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
       />
 
       <FormPasswordInput
-      control={control}
+        control={control}
         label="Senha"
         name="password"
         secureTextEntry
@@ -84,7 +98,11 @@ export function SignUpScreen(props: AuthScreenProps<'SignUpScreen'>) {
         boxProps={{mb: 's48'}}
       />
 
-      <Button onPress={handleSubmit(submitForm)} title="Criar uma conta" />
+      <Button
+        loading={isLoading}
+        onPress={handleSubmit(submitForm)}
+        title="Criar uma conta"
+      />
     </Screen>
   );
 }

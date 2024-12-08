@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { ToastContext } from './Providers/ToastPrivider';
+import { ToastContext } from './Providers/ToastProvider';
 import { ToastService } from './toastTypes';
 
 export function useToastContext(): ToastService {
