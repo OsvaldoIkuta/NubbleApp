@@ -10,7 +10,7 @@ module.exports = {
     ],
   'collectCoverage': true,
   'collectCoverageFrom': [
-    'src/{components,utils}/**/*.{js,jsx,ts,tsx}',
+    'src/{components,utils,hooks,domain}/**/*.{js,jsx,ts,tsx}',
   ],
   'modulePathIgnorePatterns': [
     '.*/mockedData/.*',
