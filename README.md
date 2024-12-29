@@ -13,13 +13,15 @@ Take a look on complete Figma with all screens [Here](https://www.figma.com/desi
 
 - [React Native CLI](https://reactnative.dev/docs/getting-started-without-a-framework)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/) e [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
 - [React Hook Form](https://react-hook-form.com/) e [Zod](https://zod.dev/)
 - [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
 - [TanStack Query (React Query)](https://tanstack.com/query/latest)
+- [React Native MMKV](https://github.com/mrousavy/react-native-mmkv)
 - [Shopify Restyle](https://shopify.github.io/restyle/)
 - [React Navigation](https://reactnavigation.org/)
 - [EsLint](https://eslint.org/), [Prettier](https://prettier.io/) e [Husky](https://typicode.github.io/husky/)
-- More modules are pending for me to start, such as unit test, integration test, CI/CD with Fastlane, React Native Vision Camera and much more.
+- More modules are pending for me to start, such as CI/CD with Fastlane, React Native Vision Camera and much more.
 
 ## 🏗️ Project Architecture
 

@@ -45,6 +45,7 @@ export function Toast() {
   }
   return (
     <Animated.View
+      testID={'toast-message'}
       style={{position: 'absolute', alignSelf: 'center', opacity: fadeAnim}}>
       <ToasContent toast={toast} />
     </Animated.View>

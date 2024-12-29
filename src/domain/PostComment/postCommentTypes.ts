@@ -1,3 +1,4 @@
+import { UserAPI } from '../User';
 
 export interface PostComment {
     id: number;
@@ -19,15 +20,6 @@ export interface PostCommentAPI {
     post_id: number;
     created_at: string;
     updated_at: string;
-    user: {
-        id: number;
-        first_name: string;
-        last_name: string;
-        username: string;
-        email: string;
-        profile_url: string;
-        is_online: string;
-        full_name: string;
-    };
+    user: UserAPI;
     meta: any;
 }
