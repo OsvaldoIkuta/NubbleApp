@@ -1,12 +1,21 @@
 import React, {ReactElement} from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { AuthCredentialsProvider } from '@services';
+import {NavigationContainer} from '@react-navigation/native';
+import {AuthCredentialsProvider} from '@services';
 import {ThemeProvider} from '@shopify/restyle';
-import { QueryClient, QueryClientConfig, QueryClientProvider } from '@tanstack/react-query';
-import {RenderHookOptions, RenderOptions, render, renderHook} from '@testing-library/react-native';
+import {
+  QueryClient,
+  QueryClientConfig,
+  QueryClientProvider,
+} from '@tanstack/react-query';
+import {
+  RenderHookOptions,
+  RenderOptions,
+  render,
+  renderHook,
+} from '@testing-library/react-native';
 
-import { Toast } from '@components';
+import {Toast} from '@components';
 import {theme} from '@theme';
 
 const queryClientConfig: QueryClientConfig = {
@@ -42,7 +51,7 @@ export const wrapScreenProviders = () => {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <NavigationContainer>{children} </NavigationContainer>
-          <Toast/>
+          <Toast />
         </ThemeProvider>
       </QueryClientProvider>
     </AuthCredentialsProvider>

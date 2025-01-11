@@ -1,15 +1,14 @@
 import React from 'react';
-import { KeyboardAvoidingView, Platform } from 'react-native';
+import {KeyboardAvoidingView, Platform} from 'react-native';
 
 import {Box, BoxProps} from '@components';
 import {useAppSafeArea, useAppTheme} from '@hooks';
 
-import { ScreenHeader, ScrollViewContainer, ViewContainer } from './components';
-
-
+import {ScreenHeader, ScrollViewContainer, ViewContainer} from './components';
 
 export interface ScreenProps extends BoxProps {
   children: React.ReactNode;
+  HeaderComponent?: React.ReactNode;
   canGoBack?: boolean;
   scrollable?: boolean;
   title?: string;
@@ -19,6 +18,7 @@ export function Screen({
   canGoBack = false,
   scrollable = false,
   style,
+  HeaderComponent,
   title,
   ...boxProps
 }: ScreenProps) {
@@ -35,7 +35,11 @@ export function Screen({
           paddingHorizontal="s24"
           style={[{paddingTop: top, paddingBottom: bottom}, style]}
           {...boxProps}>
-          <ScreenHeader canGoBack={canGoBack} title={title} />
+          <ScreenHeader
+            HeaderComponent={HeaderComponent}
+            canGoBack={canGoBack}
+            title={title}
+          />
           {children}
         </Box>
       </Container>
