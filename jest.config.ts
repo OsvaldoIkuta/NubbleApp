@@ -22,7 +22,7 @@ const config: Config = {
     'index',
   ],
   'transformIgnorePatterns': [
-    'node_modules/(?!((jest-)?react-native|@react-native(-community)?|react-native-safe-area-context)/)',
+    'node_modules/(?!((jest-)?react-native|@react-native(-community)?|react-native-safe-area-context|@react-navigation|react-native-gesture-handler)/)',
   ],
 };
 
