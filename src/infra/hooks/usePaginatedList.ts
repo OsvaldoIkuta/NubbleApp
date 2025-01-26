@@ -35,8 +35,8 @@ export function usePaginatedList<Data>(
     initialPageParam: 1,
     getNextPageParam: ({meta}) =>
       meta.hasNextPage ? meta.currentPage + 1 : null,
-      enabled: options?.enabled,
-      staleTime: options?.staleTime,
+    enabled: options?.enabled,
+    staleTime: options?.staleTime,
   });
 
   useEffect(() => {
