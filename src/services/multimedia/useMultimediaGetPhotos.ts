@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 
 import { QueryKeys } from '@infra';
+import { PhotoListPaginated } from '@services';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { multimediaService } from './multimediaService';
@@ -11,9 +12,10 @@ export function useMultimediaGetPhotos(
 ) {
   const [list, setList] = useState<string[]>([]);
 
-  const query = useInfiniteQuery({
+  const query = useInfiniteQuery<PhotoListPaginated>({
     queryKey: [QueryKeys.CameraRollList],
     queryFn: ({pageParam}) => multimediaService.getPhotos(pageParam),
+    initialPageParam: undefined,
     getNextPageParam: ({cursor}) => cursor,
     enabled: hasPermission,
   });

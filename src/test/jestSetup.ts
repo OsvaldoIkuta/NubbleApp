@@ -41,5 +41,13 @@ jest.mock('@react-native-camera-roll/camera-roll', () => ({
   },
 }));
 
+/*jest.mock('expo-image-manipulator', () => ({
+  manipulateAsync: jest.fn(),
+}));*/
+
+jest.mock('react-native-compressor', () => ({
+  compress: jest.fn(),
+}));
+
 // include this line for mocking react-native-gesture-handler
 import 'react-native-gesture-handler/jestSetup';
