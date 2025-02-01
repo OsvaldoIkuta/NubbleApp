@@ -1,6 +1,5 @@
 import React from 'react';
-import { Pressable } from 'react-native';
-
+import {Pressable} from 'react-native';
 
 import {useAppTheme} from '@hooks';
 import {ThemeColors} from '@theme';
@@ -16,10 +15,10 @@ import {CameraIcon} from '../../assets/icons/CameraIcon';
 import {ChatIcon} from '../../assets/icons/ChatIcon';
 import {ChatOnIcon} from '../../assets/icons/ChatOnIcon';
 import {CheckIcon} from '../../assets/icons/CheckIcon';
-import { CheckRoundIcon } from '../../assets/icons/CheckRoundIcon';
+import {CheckRoundIcon} from '../../assets/icons/CheckRoundIcon';
 import {ChevronRightIcon} from '../../assets/icons/ChevronRightIcon';
 import {CommentIcon} from '../../assets/icons/CommentIcon';
-import { ErrorRoundIcon } from '../../assets/icons/ErrorRoundIcon';
+import {ErrorRoundIcon} from '../../assets/icons/ErrorRoundIcon';
 import {EyeOffIcon} from '../../assets/icons/EyeOffIcon';
 import {EyeOnIcon} from '../../assets/icons/EyeOnIcon';
 import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
@@ -29,7 +28,7 @@ import {HeartIcon} from '../../assets/icons/HeartIcon';
 import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
 import {HomeIcon} from '../../assets/icons/HomeIcon';
 import {MessageIcon} from '../../assets/icons/MessageIcon';
-import { MessageRoundIcon } from '../../assets/icons/MessageRoundIcon';
+import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
 import {NewPostIcon} from '../../assets/icons/NewPostIcon';
 import {ProfileFillIcon} from '../../assets/icons/ProfileFillIcon';
 import {ProfileIcon} from '../../assets/icons/ProfileIcon';
@@ -37,29 +36,42 @@ import {SearchIcon} from '../../assets/icons/SearchIcon';
 import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 import {TrashIcon} from '../../assets/icons/TrashIcon';
 
-
 export interface IconBase {
   size?: number;
   color?: string;
+  fillColor?: string;
 }
 export interface IconProps {
   name: IconName;
   color?: ThemeColors;
   size?: number;
+  fillColor?: ThemeColors;
   onPress?: () => void;
 }
-export function Icon({name, color = 'backgroundContrast', size, onPress}: IconProps) {
+export function Icon({
+  name,
+  color = 'backgroundContrast',
+  fillColor = 'background',
+  size,
+  onPress,
+}: IconProps) {
   const {colors} = useAppTheme();
   const SVGIcon = iconRegistry[name];
+
+  const iconProps: React.ComponentProps<typeof SVGIcon> = {
+    size: size,
+    color: colors[color],
+    fillColor: colors[fillColor],
+  };
+
   if (onPress) {
     return (
       <Pressable testID={name} hitSlop={10} onPress={onPress}>
-        <SVGIcon color={colors[color]} size={size} />
+        <SVGIcon {...iconProps} />
       </Pressable>
     );
   }
-
-  return <SVGIcon color={colors[color]} size={size} />;
+  return <SVGIcon {...iconProps} />;
 }
 const iconRegistry = {
   arrowLeft: ArrowLeftIcon,

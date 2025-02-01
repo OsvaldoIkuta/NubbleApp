@@ -2,12 +2,9 @@ import React from 'react';
 
 import {Svg, Path} from 'react-native-svg';
 
-interface Props {
-    size?: number;
-    color: string;
-}
+import { IconBase } from '@components';
 
-export function EyeOffIcon({size = 20, color = 'black'}: Props){
+export function EyeOffIcon({size = 20, color = 'black'}: IconBase){
   return (
     <Svg
       width={size}
