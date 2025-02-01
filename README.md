@@ -21,7 +21,8 @@ Take a look on complete Figma with all screens [Here](https://www.figma.com/desi
 - [Shopify Restyle](https://shopify.github.io/restyle/)
 - [React Navigation](https://reactnavigation.org/)
 - [EsLint](https://eslint.org/), [Prettier](https://prettier.io/) e [Husky](https://typicode.github.io/husky/)
-- More modules are pending for me to start, such as CI/CD with Fastlane, React Native Vision Camera and much more.
+- [React Native Vision Camera](https://react-native-vision-camera.com/docs/guides)
+- More modules are pending for me to start, such as CI/CD with Fastlane and much more.
 
 ## 🏗️ Project Architecture
 
