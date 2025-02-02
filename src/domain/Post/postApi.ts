@@ -9,6 +9,12 @@ async function getList(params?: PageParams): Promise<PageAPI<PostAPI>> {
   return response.data;
 }
 
+async function getById(postId: string): Promise<PostAPI> {
+  const response = await api.get<PostAPI>(`user/post/${postId}`);
+  return response.data;
+}
+
+
 async function createPost(
   text: string,
   imageCover: ImageForUpload,
@@ -24,4 +30,5 @@ async function createPost(
 export const postApi = {
   getList,
   createPost,
+  getById,
 };
