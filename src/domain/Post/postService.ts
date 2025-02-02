@@ -12,6 +12,11 @@ async function getList(page: number): Promise<Page<Post>> {
   return apiAdapter.toPageModel(postPageAPI, postAdapter.toPost);
 }
 
+async function getById(postId: number): Promise<Post> {
+  const postApiData = await postApi.getById(postId.toString());
+  return postAdapter.toPost(postApiData);
+}
+
 async function createPost(
   text: string,
   imageCover: ImageForUpload,
@@ -23,4 +28,5 @@ async function createPost(
 export const postService = {
   getList,
   createPost,
+  getById,
 };
