@@ -28,9 +28,9 @@ export function NewPostScreen({}: AppTabScreenProps<'NewPostScreen'>) {
     flatListRef.current?.scrollToOffset({offset: 0, animated: true});
   }
 
-  function renderItem({item}: ListRenderItemInfo<string>) {
+  function renderItem({item, index}: ListRenderItemInfo<string>) {
     return (
-      <Pressable onPress={() => onSelectImage(item)}>
+      <Pressable key={index} onPress={() => onSelectImage(item)}>
         <Image
           key={item}
           source={{uri: item}}

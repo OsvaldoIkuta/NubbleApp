@@ -16,9 +16,10 @@ export function SearchScreen({}: AppScreenProps<'SearchScreen'>) {
   const {addUser} = useSearchHistoryService();
   const {list} = useUserSearch(debouncedSearch);
 
-  function renderItem({item}: ListRenderItemInfo<User>) {
+  function renderItem({item, index}: ListRenderItemInfo<User>) {
     return (
       <ProfileUser
+        key={index}
         onPress={() => addUser(item)}
         user={item}
         avatarProps={{size: 48}}

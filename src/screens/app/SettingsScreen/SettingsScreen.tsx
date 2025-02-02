@@ -20,8 +20,8 @@ export function SettingsScreen({navigation}: AppScreenProps<'SettingsScreen'>) {
     },
   ];
 
-  function renderItem({item}: ListRenderItemInfo<MenuItemProps>) {
-    return <MenuItem {...item} />;
+  function renderItem({item, index}: ListRenderItemInfo<MenuItemProps>) {
+    return <MenuItem key={index} {...item} />;
   }
 
   return (

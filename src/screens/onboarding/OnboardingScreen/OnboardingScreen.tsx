@@ -27,9 +27,10 @@ export function OnboardingScreen({}: OnboardingScreenProps<'OnboardingScreen'>) 
     }
   }
 
-  function renderItem({item}: ListRenderItemInfo<OnboardingPageItem>) {
+  function renderItem({item, index}: ListRenderItemInfo<OnboardingPageItem>) {
     return (
       <OnboardingPage
+        key={index}
         pageItem={item}
         onPressNext={onPressNext}
         onPressSkip={finishOnboarding}

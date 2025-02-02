@@ -1,4 +1,4 @@
-import { Permission, PermissionsAndroid, Platform } from 'react-native';
+import {Permission, PermissionsAndroid, Platform} from 'react-native';
 
 import {
   PermissionName,
@@ -29,9 +29,15 @@ async function request(name: PermissionName): Promise<PermissionStatus> {
 }
 
 function mapNameToPermission(name: PermissionName): Permission | null {
+  /**
+   * Version is always a number in Android
+   * https://reactnative.dev/docs/platform#version
+   */
+  const platform = Platform.Version as number;
+
   switch (name) {
     case 'photoLibrary':
-      if (parseInt(Platform.Version.toString(), 10) >= 33) {
+      if (platform >= 33) {
         return 'android.permission.READ_MEDIA_IMAGES';
       } else {
         return 'android.permission.READ_EXTERNAL_STORAGE';
@@ -39,7 +45,7 @@ function mapNameToPermission(name: PermissionName): Permission | null {
     case 'camera':
       return 'android.permission.CAMERA';
     default:
-    return null;
+      return null;
   }
 }
 

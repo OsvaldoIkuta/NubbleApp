@@ -19,9 +19,10 @@ export function PostCommentScreen({
   const {userId} = useAuthCredentials();
   const {bottom} = useAppSafeArea();
 
-  function renderItem({item}: ListRenderItemInfo<PostComment>) {
+  function renderItem({item, index}: ListRenderItemInfo<PostComment>) {
     return (
       <PostCommentItem
+        key={index}
         postId={postId}
         postComment={item}
         userId={userId}

@@ -10,9 +10,10 @@ export function SearchHistory() {
   const userList = useSearchHistory();
   const {removeUser} = useSearchHistoryService();
 
-  function renderItem({item}: ListRenderItemInfo<User>) {
+  function renderItem({item, index}: ListRenderItemInfo<User>) {
     return (
       <ProfileUser
+        key={index}
         user={item}
         avatarProps={{size: 48}}
         RightComponent={
