@@ -14,7 +14,8 @@
     "prepare": "husky",
     "art:3333": "adb reverse tcp:3333 tcp:3333",
     "ap": "adb shell input text",
-    "pre-commit": "npm run lint && npm run tsc --noEmit && npm run test"
+    "pre-commit": "npm run lint && npm run tsc --noEmit && npm run test",
+    "splash": "react-native generate-bootsplash src/assets/svgs/logo-vertical-white.svg --platforms=android,ios --background=074C4E --logo-width=105"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -31,6 +32,7 @@
     "react": "18.3.1",
     "react-hook-form": "^7.43.9",
     "react-native": "0.76.1",
+    "react-native-bootsplash": "^6.3.3",
     "react-native-compressor": "^1.10.3",
     "react-native-gesture-handler": "^2.21.2",
     "react-native-mmkv": "^3.1.0",
