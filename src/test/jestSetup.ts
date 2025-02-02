@@ -49,5 +49,18 @@ jest.mock('react-native-compressor', () => ({
   compress: jest.fn(),
 }));
 
+jest.mock('react-native-bootsplash', () => {
+  return {
+    hide: jest.fn().mockImplementation(() => Promise.resolve()),
+    isVisible: jest.fn().mockResolvedValue(false),
+    useHideAnimation: jest.fn().mockReturnValue({
+      container: {},
+      logo: {source: 0},
+      brand: {source: 0},
+    }),
+  };
+});
+
+
 // include this line for mocking react-native-gesture-handler
 import 'react-native-gesture-handler/jestSetup';
