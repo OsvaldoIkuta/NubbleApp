@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-import {permissionService} from './permissionService.android';
+import { permissionService } from './permissionService';
 import {PermissionName, PermissionStatus} from './permissionTypes';
 
 export function usePermission(permissionName: PermissionName) {
